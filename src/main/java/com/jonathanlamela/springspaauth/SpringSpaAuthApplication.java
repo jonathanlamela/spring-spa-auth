@@ -10,9 +10,10 @@ import com.jonathanlamela.springspaauth.service.UserService;
 public class SpringSpaAuthApplication {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext cc = SpringApplication.run(SpringSpaAuthApplication.class, args);
 
-		UserService us = cc.getBean("userSComponent", UserService.class);
+		ConfigurableApplicationContext context = SpringApplication.run(SpringSpaAuthApplication.class, args);
+
+		UserService us = context.getBean("userSComponent", UserService.class);
 
 		System.out.println(us.getServiceVersion());
 	}
