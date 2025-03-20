@@ -1,4 +1,4 @@
-package com.jonathanlamela.springspaauth.classes;
+package com.jonathanlamela.springspaauth.model.response;
 
 public class GenericResponse {
 
