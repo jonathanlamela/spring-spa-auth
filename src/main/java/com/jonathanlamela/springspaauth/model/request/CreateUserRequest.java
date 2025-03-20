@@ -1,10 +1,21 @@
 package com.jonathanlamela.springspaauth.model.request;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 public class CreateUserRequest {
 
+    @NotBlank(message = "Password is required")
     private String password;
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email is invalid")
     private String email;
+
+    @NotBlank(message = "Firstname is required")
     private String firstname;
+
+    @NotBlank(message = "Lastname is required")
     private String lastname;
 
     public String getFirstname() {

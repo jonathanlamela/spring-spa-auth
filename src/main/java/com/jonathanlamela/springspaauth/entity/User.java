@@ -13,6 +13,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class User implements UserDetails {
@@ -22,10 +24,13 @@ public class User implements UserDetails {
     private Integer Id;
 
     @Column(unique = true, length = 100, nullable = false)
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email is invalid")
     private String email;
 
     @Column(nullable = false)
     @JsonIgnore
+    @NotBlank(message = "Password is required")
     private String password;
 
     public void setPassword(String password) {
@@ -33,9 +38,11 @@ public class User implements UserDetails {
     }
 
     @Column(nullable = false)
+    @NotBlank(message = "Firstname is required")
     private String firstname;
 
     @Column(nullable = false)
+    @NotBlank(message = "Lastname is required")
     private String lastname;
 
     public String getFirstname() {
